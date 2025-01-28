@@ -1,0 +1,37 @@
+{
+  "name": "nodets-template",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon SET ENVIROMENT=DEV",
+    "prod": "nodemon SET ENVIROMENT=PROD",
+    "lint": "eslint . --ext .ts",
+    "build": "tsup ./src/index.ts",
+    "create:router": "tsx ./src/.helpers/addRoute.ts",
+    "create:controller": "tsx ./src/.helpers/addController.ts",
+    "insert:controller": "tsx ./src/.helpers/insertController.ts",
+    "insert:env": "tsx ./src/.helpers/insertEnv.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@typescript-eslint/eslint-plugin": "^8.22.0",
+    "@typescript-eslint/parser": "^8.22.0",
+    "eslint": "^9.19.0",
+    "nodemon": "^3.1.9",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.2.1",
+    "chalk": "^5.4.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "prisma": "^6.2.1"
+  }
+}
