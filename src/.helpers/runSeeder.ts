@@ -5,7 +5,7 @@ async function main() {
     const seederName = process.argv[2];
     await execa(
       "npx",
-      ["tsx", `./src/model/seed/${seederName || "index"}.ts`],
+      ["tsx", `./src/models/seed/${seederName || "index"}.ts`],
       {
         stdio: "inherit",
       }

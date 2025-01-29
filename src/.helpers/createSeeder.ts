@@ -17,12 +17,12 @@ async function main() {
 
     const seederPath = path.resolve(
       process.cwd(),
-      `./src/model/seed/${seederName}.ts`
+      `./src/models/seed/${seederName}.ts`
     );
     await fs.writeFile(seederPath, template);
     logger.success("Succesfuly Created Seeder");
   } catch {
-    logger.error("Failed to Run Seeder");
+    logger.error("Failed to Create Seeder");
   }
 }
 

@@ -6,7 +6,6 @@
   "scripts": {
     "dev": "cross-env ENVIROMENT=DEV nodemon",
     "prod": "cross-env ENVIROMENT=PROD nodemon",
-    "lint": "eslint . --ext .ts",
     "build": "tsup ./src/index.ts",
     "seed": "tsx ./src/.helpers/runSeeder.ts",
     "create:router": "tsx ./src/.helpers/createRouter.ts",
@@ -39,6 +38,6 @@
     "prisma": "^6.2.1"
   },
   "prisma": {
-    "schema": "./src/model"
+    "schema": "./src/models"
   }
 }
