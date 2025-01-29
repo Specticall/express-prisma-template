@@ -1,9 +1,9 @@
 import express from "express";
 import cors from "cors";
 import router from "./routes";
-import ErrorController from "./controllers/ErrorController";
 import { AppError } from "./utils/http/AppError";
 import { STATUS } from "./utils/http/statusCodes";
+import { ErrorController } from "./controllers";
 
 const app = express();
 

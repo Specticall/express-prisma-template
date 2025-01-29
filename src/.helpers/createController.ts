@@ -22,12 +22,12 @@ async function main() {
       1
     )}`;
     const controllerVariable = `get${controllerName}`;
-    const controllerFileName = `${controllerName}Controller.ts`;
+    const controllerFormattedName = `${controllerName}Controller`;
 
     const cwd = process.cwd();
     const controllerPath = path.resolve(
       cwd,
-      `./src/controllers/${controllerFileName}`
+      `./src/controllers/${controllerFormattedName}.ts`
     );
 
     await fs.writeFile(
@@ -39,13 +39,10 @@ async function main() {
     const controllerIndexFile = await fs.readFile(controllerIndexPath, "utf-8");
     await fs.writeFile(
       controllerIndexPath,
-      `${controllerIndexFile}export * from "./${controllerFileName.replace(
-        ".ts",
-        ""
-      )}";\n`
+      `${controllerIndexFile}export { default as ${controllerFormattedName} } from "./${controllerFormattedName}";\n`
     );
 
-    logger.success(`Successfuly Created ${controllerFileName}`);
+    logger.success(`Successfuly Created ${controllerFormattedName}`);
   } catch {
     logger.error("Unable To Create Controller");
   }

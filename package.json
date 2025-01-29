@@ -8,8 +8,10 @@
     "prod": "cross-env ENVIROMENT=PROD nodemon",
     "lint": "eslint . --ext .ts",
     "build": "tsup ./src/index.ts",
-    "create:router": "tsx ./src/.helpers/addRouter.ts",
-    "create:controller": "tsx ./src/.helpers/addController.ts",
+    "seed": "tsx ./src/.helpers/runSeeder.ts",
+    "create:router": "tsx ./src/.helpers/createRouter.ts",
+    "create:controller": "tsx ./src/.helpers/createController.ts",
+    "create:seeder": "tsx ./src/.helpers/createSeeder.ts",
     "insert:controller": "tsx ./src/.helpers/insertController.ts",
     "insert:env": "tsx ./src/.helpers/insertEnv.ts"
   },
@@ -23,6 +25,7 @@
     "@typescript-eslint/parser": "^8.22.0",
     "cross-env": "^7.0.3",
     "eslint": "^9.19.0",
+    "execa": "^9.5.2",
     "nodemon": "^3.1.9",
     "tsx": "^4.19.2",
     "typescript": "^5.7.3"
@@ -34,5 +37,8 @@
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "prisma": "^6.2.1"
+  },
+  "prisma": {
+    "schema": "./src/model"
   }
 }
