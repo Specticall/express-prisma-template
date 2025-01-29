@@ -11,7 +11,7 @@ router.get("/", (_, response) => {
 
 /**
  * Insert your router here
- * @example exampleRouter.use("/example", controller)
+ * @example router.use("/example", exampleRouter)
  */
 
 export default router;

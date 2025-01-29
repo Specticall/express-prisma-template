@@ -4,11 +4,11 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev": "nodemon SET ENVIROMENT=DEV",
-    "prod": "nodemon SET ENVIROMENT=PROD",
+    "dev": "cross-env ENVIROMENT=DEV nodemon",
+    "prod": "cross-env ENVIROMENT=PROD nodemon",
     "lint": "eslint . --ext .ts",
     "build": "tsup ./src/index.ts",
-    "create:router": "tsx ./src/.helpers/addRoute.ts",
+    "create:router": "tsx ./src/.helpers/addRouter.ts",
     "create:controller": "tsx ./src/.helpers/addController.ts",
     "insert:controller": "tsx ./src/.helpers/insertController.ts",
     "insert:env": "tsx ./src/.helpers/insertEnv.ts"
@@ -21,6 +21,7 @@
     "@types/express": "^5.0.0",
     "@typescript-eslint/eslint-plugin": "^8.22.0",
     "@typescript-eslint/parser": "^8.22.0",
+    "cross-env": "^7.0.3",
     "eslint": "^9.19.0",
     "nodemon": "^3.1.9",
     "tsx": "^4.19.2",
