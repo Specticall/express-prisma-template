@@ -9,7 +9,7 @@ const template = `import { Router } from "express";
 const {{ROUTER_NAME}} = Router();
 
 /**
- * Insert your controllers here
+ * Insert your routes here
  * @example exampleRouter.get("/", getExample)
  */
 
