@@ -22,8 +22,8 @@ jobs:
       - name: Create .env.example
         run: |
           touch .env.example
-          echo "PORT=" > .env.example
           echo "DATABASE_URL" > .env.example
+          echo "PORT=" > .env.example
 
       - name: Commit and push .env.example
         run: |
