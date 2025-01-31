@@ -1,1 +1,1 @@
-npm run create:env-example
+npm run create:env-example --silent
