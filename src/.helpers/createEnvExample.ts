@@ -1,6 +1,7 @@
 import fs from "fs/promises";
 import path from "path";
 import { logger } from "./logger";
+import { execa } from "execa";
 
 const cwd = process.cwd();
 const ENV_PATH = path.resolve(cwd, "./.env");
@@ -36,6 +37,8 @@ async function main() {
     }
 
     await fs.writeFile(path.resolve(cwd, "./.env.example"), result);
+
+    execa`git add .env.example`;
   } catch {
     logger.error("Something went wrong while trying to create .env.example");
   }
