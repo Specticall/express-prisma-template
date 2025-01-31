@@ -12,7 +12,8 @@
     "create:controller": "tsx ./src/.helpers/createController.ts",
     "create:seeder": "tsx ./src/.helpers/createSeeder.ts",
     "insert:controller": "tsx ./src/.helpers/insertController.ts",
-    "insert:env": "tsx ./src/.helpers/insertEnv.ts"
+    "insert:env": "tsx ./src/.helpers/insertEnv.ts",
+    "prepare": "husky install"
   },
   "keywords": [],
   "author": "",
@@ -27,7 +28,8 @@
     "execa": "^9.5.2",
     "nodemon": "^3.1.9",
     "tsx": "^4.19.2",
-    "typescript": "^5.7.3"
+    "typescript": "^5.7.3",
+    "husky": "^8.0.0"
   },
   "dependencies": {
     "@prisma/client": "^6.2.1",
@@ -39,5 +41,10 @@
   },
   "prisma": {
     "schema": "./src/models"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "echo PRECOMMITTING"
+    }
   }
 }
