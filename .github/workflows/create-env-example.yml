@@ -1,0 +1,32 @@
+name: Create .env.example
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  create-env-example:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: "16"
+
+      - name: Create .env.example
+        run: /
+          echo "PORT=" > .env.example
+          echo "DATABASE_URL" > .env.example
+
+      - name: Commit and push .env.example
+        run: /
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add .env.example
+          git commit -m "Add .env.example"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -4,6 +4,19 @@ Welcome to the Express Prisma Template documentation! This comprehensive guide i
 
 ## 1. Installation
 
+The following are instructions on how to setup this template from start to finish
+
+1. Create a copy of this template repository by clicking on the `use this template` button on the top right section of this github repository.
+
+2. Clone the repository into your local machine using the git clone command
+
+```bash
+git clone <your-repo-name> .
+```
+
+3. 
+
+
 ## 2. Directory Structure
 
 The template follows the `Model-View-Controller` structure with additional extensions.
@@ -210,5 +223,61 @@ Refer to the [Prisma ORM Documentation](https://www.prisma.io/docs/orm) for more
 > In a traditional Prisma project, the `models/` folder is typically named `prisma/` and resides outside the `src` directory. However, to align with the MVC (Model-View-Controller) naming conventions, we have renamed it to `models/` and moved it insde the `src/` directory for a more consistent and intuitive experience.
 
 ### Using Seeders
-### Error Handling
+
+### Using Seeders
+
+Seeders are scripts that allow you to populate your database with initial data or test data. This can be particularly useful during development or testing phases. Seeder scripts are located in the `/models/seed/` directory.
+
+To run the main seeder script (`index.ts`), use the following command:
+
+```bash
+> npm run seed
+```
+
+By default, this command executes the `index.ts` file. If you want to create a new seeder script, you can use the provided script command:
+
+```bash
+> npm run create:seeder <name>
+```
+
+This will create a new seeder file named `<name>.ts` in the `/models/seed/` directory. For example, to create a seeder for users, you would run:
+
+```bash
+> npm run create:seeder user
+```
+
+To execute a specific seeder file, such as `user.ts`, use the following command:
+
+```bash
+> npm run seed user
+```
+
+This command will run the `user.ts` seeder script, allowing you to insert user data into your database.
+
 ### Inserting Enviroment Variables
+
+Inserting Enviroment Variables involves two main steps,
+  1. Creating it inside the `.env` directory
+  2. Converting it into a regular variable on `config/env.ts`
+
+This process can be done manually or automatically using the following script:
+
+```bash
+> npm run create <env-key> <env-value>
+```
+
+### Error Handling
+
+Error handling logic is centralized in the `controllers/ErrorController`. By utilizing Express's `next()` function, any error encountered in a controller is passed to the error handler. This ensures consistent error management across the application.
+
+For operational errors (errors that are expected and can be handled gracefully), the `AppError` class is used. This class extends the native `Error` class and includes an additional property for the HTTP status code. The status code can be set manually or by using the predefined `STATUS` object.
+
+Here’s an example of how to use the `AppError` class:
+
+```ts
+if (!userData) {
+  throw new AppError("Unable to find user", STATUS.NOT_FOUND);
+}
+```
+
+In this example, if `userData` is not found, an `AppError` is thrown with a message "Unable to find user" and a status code of `STATUS.NOT_FOUND`. This error is then caught by the error handler, which sends an appropriate response to the client.
