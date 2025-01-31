@@ -23,7 +23,8 @@ jobs:
         run: |
           touch .env.example
           echo "DATABASE_URL" > .env.example
-          echo "PORT=" > .env.example
+          echo "PORT=" >> .env.example
+          echo "CLIENT_SECRET=" >> .env.example
 
       - name: Commit and push .env.example
         run: |
