@@ -29,5 +29,6 @@ jobs:
         run: |
           git config --global user.name 'Specticall'
           git config --global user.email 'specticall@users.noreply.github.com'
+          git add .env.example
           git commit -am "Added .env.example"
           git push
