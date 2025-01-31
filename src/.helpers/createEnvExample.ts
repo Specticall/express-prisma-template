@@ -24,6 +24,7 @@ async function main() {
     const sanitizedTokens = tokens.map((token) => {
       // Checks for comment tokens
       if (token.startsWith("#")) return token;
+      if (token.startsWith("PORT=")) return token;
       const key = token.split("=")[0];
       return key + "=";
     });
