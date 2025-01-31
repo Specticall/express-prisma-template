@@ -1,21 +1,47 @@
 # Express Prisma Template Guide
 
-Welcome to the Express Prisma Template documentation! This comprehensive guide is designed to help you navigate and utilize the template effectively, ensuring you can get your project up and running smoothly.
+Welcome to the Express Prisma Template documentation! This comprehensive guide is designed to help you navigate and utilize the template effectively, making sure you can get your project up and running in no time.
+
+## Contents
+* [Installation](#1-installation)
+* [Directory Structure](#2-directory-structure)
+* [Usage Guides](#3-usage-guides)
+  * [Scripts](#scripts)
+  * [Starting the Server](#starting-the-server)
+  * [Creating Controllers](#creating-controllers)
+  * [Creating Routes](#creating-routes)
+  * [Using Seeders](#using-seeders)
+  * [Inserting Enviroment Variables](#inserting-enviroment-variables)
+  * [Error Handling](#error-handling)
 
 ## 1. Installation
 
-The following are instructions on how to setup this template from start to finish
+The following are instructions on how to setup this template on your local machine
 
 1. Create a copy of this template repository by clicking on the `use this template` button on the top right section of this github repository.
 
-2. Clone the repository into your local machine using the git clone command
+2. Clone the repository into your local machine using the git clone command (the following command assumes you are inside the directory you want to create the project on)
 
 ```bash
-git clone <your-repo-name> .
+> git clone <your-repo-name> .
 ```
 
-3. 
+3. Create a `.env` file either by manually copy pasting the files from `.env.example` or using the following command
+```bash
+> cp .env.example .env
+``` 
 
+4. Install dependencies by using the command:
+```bash
+> npm i
+```
+
+5. Run the development server using the command:
+```bash
+> npm run dev
+```
+
+> Instructions on setting up your prisma migrations can be found in the (Prisma official documentation)[https://www.prisma.io/docs/orm]
 
 ## 2. Directory Structure
 
@@ -221,8 +247,6 @@ Run migrations (for SQL Databases) with:
 Refer to the [Prisma ORM Documentation](https://www.prisma.io/docs/orm) for more details.
 
 > In a traditional Prisma project, the `models/` folder is typically named `prisma/` and resides outside the `src` directory. However, to align with the MVC (Model-View-Controller) naming conventions, we have renamed it to `models/` and moved it insde the `src/` directory for a more consistent and intuitive experience.
-
-### Using Seeders
 
 ### Using Seeders
 
