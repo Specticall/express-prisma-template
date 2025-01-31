@@ -13,7 +13,8 @@
     "create:seeder": "tsx ./src/.helpers/createSeeder.ts",
     "insert:controller": "tsx ./src/.helpers/insertController.ts",
     "insert:env": "tsx ./src/.helpers/insertEnv.ts",
-    "prepare": "husky install"
+    "prepare": "husky",
+    "create:env-example": "tsx ./src/.helpers/createEnvExample.ts"
   },
   "keywords": [],
   "author": "",
@@ -41,10 +42,5 @@
   },
   "prisma": {
     "schema": "./src/models"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "echo PRECOMMITTING"
-    }
   }
 }
