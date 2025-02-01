@@ -2,19 +2,18 @@
   "name": "nodets-template",
   "version": "1.0.0",
   "main": "index.js",
-  "type": "module",
   "scripts": {
     "dev": "cross-env ENVIROMENT=DEV nodemon",
     "prod": "cross-env ENVIROMENT=PROD nodemon",
     "build": "tsup ./src/index.ts",
-    "seed": "tsx ./src/.helpers/runSeeder.ts",
-    "create:router": "tsx ./src/.helpers/createRouter.ts",
-    "create:controller": "tsx ./src/.helpers/createController.ts",
-    "create:seeder": "tsx ./src/.helpers/createSeeder.ts",
-    "insert:controller": "tsx ./src/.helpers/insertController.ts",
-    "insert:env": "tsx ./src/.helpers/insertEnv.ts",
+    "seed": "tsx ./src/.scripts/runSeeder.ts",
+    "create:router": "tsx ./src/.scripts/createRouter.ts",
+    "create:controller": "tsx ./src/.scripts/createController.ts",
+    "create:seeder": "tsx ./src/.scripts/createSeeder.ts",
+    "insert:controller": "tsx ./src/.scripts/insertController.ts",
+    "insert:env": "tsx ./src/.scripts/insertEnv.ts",
     "prepare": "husky",
-    "create:env-example": "tsx ./src/.helpers/createEnvExample.ts"
+    "create:env-example": "tsx ./src/.scripts/createEnvExample.ts"
   },
   "keywords": [],
   "author": "",
@@ -26,17 +25,18 @@
     "@typescript-eslint/parser": "^8.22.0",
     "cross-env": "^7.0.3",
     "eslint": "^9.19.0",
-    "execa": "^9.5.2",
+    "husky": "^8.0.0",
     "nodemon": "^3.1.9",
+    "tsup": "^8.3.6",
     "tsx": "^4.19.2",
-    "typescript": "^5.7.3",
-    "husky": "^8.0.0"
+    "typescript": "^5.7.3"
   },
   "dependencies": {
     "@prisma/client": "^6.2.1",
     "chalk": "^5.4.1",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
+    "execa": "^9.5.2",
     "express": "^4.21.2",
     "prisma": "^6.2.1"
   },

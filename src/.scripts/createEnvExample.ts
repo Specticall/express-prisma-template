@@ -1,7 +1,6 @@
 import fs from "fs/promises";
 import path from "path";
 import { logger } from "./logger";
-import { execa } from "execa";
 
 const cwd = process.cwd();
 const ENV_PATH = path.resolve(cwd, "./.env");
@@ -20,7 +19,6 @@ async function main() {
     if (!envExists()) return;
     const envFile = await fs.readFile(ENV_PATH, "utf-8");
     const tokens = envFile.split("\n").filter((t) => t.trim() !== "");
-
     const sanitizedTokens = tokens.map((token) => {
       // Checks for comment tokens
       if (token.startsWith("#")) return token;
@@ -28,7 +26,6 @@ async function main() {
       const key = token.split("=")[0];
       return key + "=";
     });
-
     let result = "";
     for (let i = 0; i < sanitizedTokens.length; i++) {
       const token = sanitizedTokens[i];
@@ -36,10 +33,10 @@ async function main() {
       if (token.startsWith("#") && i !== 0) result += "\n";
       result += token + "\n";
     }
-
     await fs.writeFile(path.resolve(cwd, "./.env.example"), result);
 
-    execa`git add .env.example`;
+    const { execa } = await import("execa");
+    await execa("git", ["add", ".env.example"]);
   } catch {
     logger.error("Something went wrong while trying to create .env.example");
   }

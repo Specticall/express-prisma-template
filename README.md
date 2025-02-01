@@ -56,7 +56,7 @@ The template follows the `Model-View-Controller` structure with additional exten
   ├── config/
   ├── utils/
   │   └── http/
-  └── .helpers/
+  └── .scripts/
 ```
 
 ### Summary
@@ -70,7 +70,7 @@ The template follows the `Model-View-Controller` structure with additional exten
 | `utils/`      | Contains reusable utility functions. |
 | `utils/http/`       | Manages HTTP requests/responses. |
 | `models/seed/` | Contains seeder functions |
-| `.helpers/`   | **[DO NOT TOUCH]** Contains code for utility scripts. |
+| `.scripts/`   | **[DO NOT TOUCH]** Contains code for utility scripts. |
 
 ### Src Directory
 
@@ -103,7 +103,7 @@ The template follows the `Model-View-Controller` structure with additional exten
 ## 3. Usage Guides
 
 ### Scripts
-This template includes utility scripts to speed up development by generating boilerplate code. The scripts are listed in `package.json` and implemented in the `.helpers/` directory. Below is a summary of the scripts and their usage:
+This template includes utility scripts to speed up development by generating boilerplate code. The scripts are listed in `package.json` and implemented in the `.scripts/` directory. Below is a summary of the scripts and their usage:
 
 | Script | Usage |
 |--------|-------|

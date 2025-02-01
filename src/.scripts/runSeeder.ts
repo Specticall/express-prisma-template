@@ -1,8 +1,10 @@
 import { logger } from "./logger";
-import { execa } from "execa";
 async function main() {
   try {
     const seederName = process.argv[2];
+    // Execa doesn't work with normal imports when the package is not set to use ESM
+    const { execa } = await import("execa");
+
     await execa(
       "npx",
       ["tsx", `./src/models/seed/${seederName || "index"}.ts`],

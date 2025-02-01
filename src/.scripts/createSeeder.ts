@@ -1,6 +1,7 @@
 import path from "path";
 import { logger } from "./logger";
 import fs from "fs/promises";
+import { fileExists } from "./fileExists";
 
 const template = `export async function seed() {
   /**
@@ -19,6 +20,12 @@ async function main() {
       process.cwd(),
       `./src/models/seed/${seederName}.ts`
     );
+
+    if (await fileExists(seederPath)) {
+      logger.error(`${seederName} already exists`);
+      return;
+    }
+
     await fs.writeFile(seederPath, template);
     logger.success("Succesfuly Created Seeder");
   } catch {

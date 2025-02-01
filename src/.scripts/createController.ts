@@ -1,6 +1,7 @@
 import fs from "fs/promises";
 import path from "path";
 import { logger } from "./logger";
+import { fileExists } from "./fileExists";
 
 const template = `import { RequestHandler } from "express";
 
@@ -29,6 +30,11 @@ async function main() {
       cwd,
       `./src/controllers/${controllerFormattedName}.ts`
     );
+
+    if (await fileExists(controllerPath)) {
+      logger.error(`${controllerFormattedName} already exists`);
+      return;
+    }
 
     await fs.writeFile(
       controllerPath,

@@ -1,6 +1,7 @@
 import path from "path";
 import fs from "fs/promises";
 import { logger } from "./logger";
+import { fileExists } from "./fileExists";
 
 const EXPORT_REGEX = /export\s+default[\s\S]*/;
 
@@ -33,6 +34,11 @@ async function main() {
     const cwd = process.cwd();
     const routerPath = path.resolve(cwd, `./src/routes/${routerName}.ts`);
     const routerIndexPath = path.resolve(cwd, `./src/routes/index.ts`);
+
+    if (await fileExists(routerPath)) {
+      logger.error(`${routerName} already exists`);
+      return;
+    }
 
     await fs.writeFile(
       routerPath,
